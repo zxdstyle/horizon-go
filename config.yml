@@ -1,0 +1,20 @@
+app:
+  debug: false
+  addr: :8080
+
+
+db:
+  host: 127.0.0.1
+  port: 3306
+  database: bloghub
+  username: root
+  password: a8968640
+  debug: false
+
+clickhouse:
+  host: 127.0.0.1
+  port: 3306
+  database: bloghub
+  username: root
+  password: a8968640
+  debug: false
