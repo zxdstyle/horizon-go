@@ -1,6 +1,6 @@
 package container
 
-import "github.com/zxdstyle/bloghub/pkg/co"
+import "github.com/zxdstyle/horizon/pkg/co"
 
 type (
 	Container struct {

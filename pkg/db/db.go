@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 	"github.com/gookit/config/v2"
-	"github.com/zxdstyle/bloghub/pkg/db/drivers"
-	"github.com/zxdstyle/bloghub/pkg/db/options"
+	"github.com/zxdstyle/horizon/pkg/db/drivers"
+	"github.com/zxdstyle/horizon/pkg/db/options"
 	"gorm.io/gorm"
 )
 
@@ -53,4 +53,3 @@ func (d *DB) connect() error {
 	d.instance = instance
 	return nil
 }
-

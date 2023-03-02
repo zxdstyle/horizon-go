@@ -2,7 +2,7 @@ package http
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/zxdstyle/bloghub/pkg/http/requests"
+	"github.com/zxdstyle/horizon/pkg/http/requests"
 )
 
 type (
@@ -31,8 +31,8 @@ func (r Router) DELETE(path string, handler HandlerFunc) Router {
 	return r
 }
 
-func (r Router) Group(path string, handler HandlerFunc) Router {
-	group := r.engine.Group(path, r.wrapHandler(handler))
+func (r Router) Group(path string) Router {
+	group := r.engine.Group(path)
 	return Router{
 		engine: group,
 	}

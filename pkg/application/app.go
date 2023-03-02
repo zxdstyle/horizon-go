@@ -1,8 +1,8 @@
 package application
 
 import (
-	"github.com/zxdstyle/bloghub/pkg/consoles"
-	"github.com/zxdstyle/bloghub/pkg/container"
+	"github.com/zxdstyle/horizon/pkg/consoles"
+	"github.com/zxdstyle/horizon/pkg/container"
 )
 
 var (

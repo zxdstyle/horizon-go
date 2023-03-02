@@ -1,10 +1,11 @@
 package pkg
 
 import (
+	"fmt"
 	"github.com/gookit/config/v2"
-	"github.com/zxdstyle/bloghub/pkg/container"
-	"github.com/zxdstyle/bloghub/pkg/db"
-	"github.com/zxdstyle/bloghub/pkg/http"
+	"github.com/zxdstyle/horizon/pkg/container"
+	"github.com/zxdstyle/horizon/pkg/db"
+	"github.com/zxdstyle/horizon/pkg/http"
 )
 
 func App[T container.Service]() T {
@@ -19,6 +20,10 @@ func Server() *http.Server {
 	return container.InvokeNamed[*http.Server](nil, "server.app")
 }
 
-func DB() *db.DB {
-	return container.InvokeNamed[*db.DB](nil, "db.db")
+func DB(name ...string) *db.DB {
+	dbName := "db.db"
+	if len(name) > 0 {
+		dbName = fmt.Sprintf("db.%s", name[0])
+	}
+	return container.InvokeNamed[*db.DB](nil, dbName)
 }

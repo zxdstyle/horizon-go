@@ -1,7 +1,7 @@
 package http
 
 import (
-	"github.com/zxdstyle/bloghub/pkg/container"
+	"github.com/zxdstyle/horizon/pkg/container"
 )
 
 type Command struct {
