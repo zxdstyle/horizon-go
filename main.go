@@ -6,6 +6,7 @@ import (
 	"github.com/go-mysql-org/go-mysql/canal"
 	"github.com/golang-module/carbon/v2"
 	"github.com/zxdstyle/horizon/config"
+	"github.com/zxdstyle/horizon/internal/routes"
 	"github.com/zxdstyle/horizon/model"
 	"github.com/zxdstyle/horizon/pkg"
 	"github.com/zxdstyle/horizon/pkg/application"
@@ -19,12 +20,11 @@ func main() {
 
 	app.Command(config.Consoles...)
 
-	//
-	//routes.InitRoutes()
-	//
-	//if err := app.Run(); err != nil {
-	//	log.Fatal(err)
-	//}
+	routes.InitRoutes()
+
+	if err := app.Run(); err != nil {
+		log.Fatal(err)
+	}
 	//db := pkg.DB().WithContext(context.TODO())
 	//
 	//dto.SetDefault(db)
@@ -54,6 +54,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	c.SetEventHandler(new(MyEventHandler))
 
 	for i := 10; i > 0; i-- {

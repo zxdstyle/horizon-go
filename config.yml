@@ -6,7 +6,7 @@ app:
 db:
   host: 127.0.0.1
   port: 3306
-  database: horizon
+  database: aries
   username: root
   password: a8968640
   debug: false
