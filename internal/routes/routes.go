@@ -24,9 +24,26 @@ func InitRoutes() {
 		})
 
 		api.GET("v1/users", func(ctx context.Context, req requests.IRequest) responses.Response {
-			var users []model.User
+
+			var (
+				users []model.User
+				total int64
+			)
 			pkg.DB().WithContext(ctx).Limit(10).Find(&users)
-			return responses.Success(users)
+			pkg.DB().WithContext(ctx).Model(model.User{}).Count(&total)
+			return responses.Success(Pagination{
+				Page:     1,
+				Data:     users,
+				PageSize: 0,
+				Total:    total,
+			})
 		})
 	}
+}
+
+type Pagination struct {
+	Page     int64 `json:"page"`
+	Data     any   `json:"data"`
+	PageSize int64 `json:"pageSize"`
+	Total    int64 `json:"total"`
 }

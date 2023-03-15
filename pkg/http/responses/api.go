@@ -12,7 +12,8 @@ type apiResponse struct {
 }
 
 func (r apiResponse) Do(ctx *gin.Context) error {
-	ctx.JSON(r.Code, r)
+	ctx.Status(r.Code)
+	ctx.JSON(r.Code, r.Data)
 	return nil
 }
 
