@@ -18,7 +18,7 @@ interface DataTableProps<T = any> {
 }
 
 function DataTable<T = any>({ children, columns, api, toolbar, onPageChange }: DataTableProps<T>) {
-	const { data, isLoading, refresh } = useDataSource<T>(api);
+	const { data, isLoading, refresh, total } = useDataSource<T>(api);
 
 	const { getHeaderGroups, getRowModel, getCanPreviousPage, setPageSize, setPageIndex } = useReactTable<T>({
 		columns,
@@ -68,6 +68,7 @@ function DataTable<T = any>({ children, columns, api, toolbar, onPageChange }: D
 					{getRowModel().rows.length === 0 && <Empty />}
 
 					<Pagination
+						total={total}
 						onPageChange={page => {
 							setPageIndex(page - 1);
 							if (onPageChange) onPageChange(page);

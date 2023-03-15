@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function useDataSource<T = any>(api: string) {
 	const [data, setData] = useState<T[]>([]);
+	const [total, setTotal] = useState(0);
 
 	const { isLoading, refetch } = useQuery<T[]>({
 		queryKey: [`table-data-${api}`],
@@ -12,11 +13,13 @@ export default function useDataSource<T = any>(api: string) {
 		},
 		onSuccess(data) {
 			setData(data);
+			// todo
+			setTotal(1);
 		},
 		retry: false,
 	});
 
 	const refresh = () => refetch();
 
-	return { isLoading, data, refresh };
+	return { isLoading, data, refresh, total };
 }

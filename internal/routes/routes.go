@@ -2,8 +2,8 @@ package routes
 
 import (
 	"context"
-	"github.com/zxdstyle/horizon/model"
 	"github.com/zxdstyle/horizon/internal/handler/posts"
+	"github.com/zxdstyle/horizon/internal/model"
 	"github.com/zxdstyle/horizon/pkg"
 	"github.com/zxdstyle/horizon/pkg/http/requests"
 	"github.com/zxdstyle/horizon/pkg/http/responses"

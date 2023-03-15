@@ -4,9 +4,9 @@ function generatePagesArray(from: number, to: number): number[] {
 	return [...new Array(to - from)].map((_, index) => from + index + 1).filter(page => page > 0);
 }
 
-export function usePagination<I>({ totalRegisters, page, items, itemsPerPage = 10, siblingsCount = 1, sorting = [] }: Options<I>): Pagination<I> {
+export function usePagination<I>({ total, page, items, itemsPerPage = 10, siblingsCount = 1, sorting = [] }: Options<I>): Pagination<I> {
 	const currentPage = page;
-	const lastPage = Math.ceil(totalRegisters / itemsPerPage);
+	const lastPage = Math.ceil(total / itemsPerPage);
 	const totalPages = lastPage === 0 ? 1 : lastPage;
 
 	const previousPages = currentPage > 1 ? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1) : [];

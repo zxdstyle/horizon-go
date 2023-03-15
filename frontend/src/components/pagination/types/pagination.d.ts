@@ -1,7 +1,7 @@
 import { SortingState } from '@tanstack/react-table';
 
 export type Options<I> = {
-	totalRegisters: number;
+	total: number;
 	page: number;
 	items: I[];
 	itemsPerPage?: number;

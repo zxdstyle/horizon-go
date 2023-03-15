@@ -2,8 +2,10 @@ import React from 'react';
 import { Stack, Text, ThemeTypings } from '@chakra-ui/react';
 
 import { PaginationItem } from './PaginationItem';
+import { usePagination } from '../hooks/usePagination';
 
 interface PaginationProps {
+	total: number;
 	onPageChange?: (page: number) => void;
 	currentPage: number;
 	lastPage: number;
@@ -13,7 +15,9 @@ interface PaginationProps {
 	colorScheme?: ThemeTypings['colorSchemes'];
 }
 
-export default function Pagination({ currentPage, lastPage, previousPages, nextPages, siblingsCount, onPageChange, colorScheme }: PaginationProps) {
+export default function Pagination({ total, onPageChange, colorScheme }: PaginationProps) {
+	const { lastPage, previousPages, nextPages, siblingsCount } = usePagination({ total });
+
 	return (
 		<Stack direction="row" mt="8" justify="flex-end" align="center" spacing="6">
 			<Stack direction="row" spacing="4">
