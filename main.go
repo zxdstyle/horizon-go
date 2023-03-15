@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/zxdstyle/bloghub/config"
-	"github.com/zxdstyle/bloghub/internal/routes"
-	"github.com/zxdstyle/bloghub/pkg/application"
+	"github.com/zxdstyle/horizon/config"
+	"github.com/zxdstyle/horizon/internal/routes"
+	"github.com/zxdstyle/horizon/pkg/application"
 	"log"
 )
 

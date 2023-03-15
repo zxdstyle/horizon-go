@@ -1,10 +1,10 @@
 package config
 
 import (
-	"github.com/zxdstyle/bloghub/pkg/config"
-	"github.com/zxdstyle/bloghub/pkg/container"
-	"github.com/zxdstyle/bloghub/pkg/db"
-	"github.com/zxdstyle/bloghub/pkg/http"
+	"github.com/zxdstyle/horizon/pkg/config"
+	"github.com/zxdstyle/horizon/pkg/container"
+	"github.com/zxdstyle/horizon/pkg/db"
+	"github.com/zxdstyle/horizon/pkg/http"
 )
 
 func init() {

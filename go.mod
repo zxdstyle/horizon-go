@@ -1,4 +1,4 @@
-module github.com/zxdstyle/bloghub
+module github.com/zxdstyle/horizon
 
 go 1.20
 

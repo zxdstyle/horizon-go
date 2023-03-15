@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"github.com/gookit/config/v2"
-	"github.com/zxdstyle/bloghub/pkg/slog"
+	"github.com/zxdstyle/horizon/pkg/slog"
 	"log"
 	"net/http"
 	"os"

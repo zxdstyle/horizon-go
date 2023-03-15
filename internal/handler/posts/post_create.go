@@ -2,10 +2,10 @@ package posts
 
 import (
 	"context"
-	"github.com/zxdstyle/bloghub/internal/model"
-	"github.com/zxdstyle/bloghub/pkg"
-	"github.com/zxdstyle/bloghub/pkg/http/requests"
-	"github.com/zxdstyle/bloghub/pkg/http/responses"
+	"github.com/zxdstyle/horizon/internal/model"
+	"github.com/zxdstyle/horizon/pkg"
+	"github.com/zxdstyle/horizon/pkg/http/requests"
+	"github.com/zxdstyle/horizon/pkg/http/responses"
 )
 
 func (*apiPost) Create(ctx context.Context, req requests.IRequest) responses.Response {

@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/zxdstyle/bloghub/pkg/consoles"
-	"github.com/zxdstyle/bloghub/pkg/http"
+	"github.com/zxdstyle/horizon/pkg/consoles"
+	"github.com/zxdstyle/horizon/pkg/http"
 )
 
 var Consoles = []consoles.Command{

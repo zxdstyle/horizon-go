@@ -1,0 +1,3 @@
+interface TableContext {
+	refresh: Func;
+}

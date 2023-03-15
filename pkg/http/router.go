@@ -2,7 +2,7 @@ package http
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/zxdstyle/bloghub/pkg/http/requests"
+	"github.com/zxdstyle/horizon/pkg/http/requests"
 )
 
 type (

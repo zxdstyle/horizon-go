@@ -1,7 +1,7 @@
 package drivers
 
 import (
-	"github.com/zxdstyle/bloghub/pkg/db/options"
+	"github.com/zxdstyle/horizon/pkg/db/options"
 	"gorm.io/gorm"
 )
 

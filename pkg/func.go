@@ -2,9 +2,9 @@ package pkg
 
 import (
 	"github.com/gookit/config/v2"
-	"github.com/zxdstyle/bloghub/pkg/container"
-	"github.com/zxdstyle/bloghub/pkg/db"
-	"github.com/zxdstyle/bloghub/pkg/http"
+	"github.com/zxdstyle/horizon/pkg/container"
+	"github.com/zxdstyle/horizon/pkg/db"
+	"github.com/zxdstyle/horizon/pkg/http"
 )
 
 func App[T container.Service]() T {

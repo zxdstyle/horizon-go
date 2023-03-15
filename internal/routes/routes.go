@@ -2,10 +2,11 @@ package routes
 
 import (
 	"context"
-	"github.com/zxdstyle/bloghub/internal/handler/posts"
-	"github.com/zxdstyle/bloghub/pkg"
-	"github.com/zxdstyle/bloghub/pkg/http/requests"
-	"github.com/zxdstyle/bloghub/pkg/http/responses"
+	"github.com/zxdstyle/horizon/internal/handler/posts"
+	"github.com/zxdstyle/horizon/pkg"
+	"github.com/zxdstyle/horizon/pkg/horizon/widgets"
+	"github.com/zxdstyle/horizon/pkg/http/requests"
+	"github.com/zxdstyle/horizon/pkg/http/responses"
 )
 
 func InitRoutes() {
@@ -15,9 +16,7 @@ func InitRoutes() {
 	s.GET("/api/v1/routes", posts.Post.List)
 
 	s.POST("/api/v1/login", func(ctx context.Context, req requests.IRequest) responses.Response {
-		return responses.Success(map[string]any{
-			"username": "zxdstyle",
-			"token":    "12312312312312312312312312312",
-		})
+		button := widgets.NewButton()
+		return responses.Success(button)
 	})
 }
