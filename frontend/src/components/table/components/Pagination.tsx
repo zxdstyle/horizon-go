@@ -10,7 +10,7 @@ interface PaginationProps {
 	pageSize: number;
 }
 
-function Pagination({ children, pageSizes, pageSize, getCanPreviousPage }: PaginationProps) {
+function Pagination({ pageSizes, pageSize, getCanPreviousPage }: PaginationProps) {
 	const pageSizesOptions = useMemo<Array<SelectOption>>(() => {
 		return pageSizes.map(item => {
 			return { value: item, label: `${item}/页` };
@@ -20,6 +20,12 @@ function Pagination({ children, pageSizes, pageSize, getCanPreviousPage }: Pagin
 	return (
 		<Flex>
 			<Box as="ul" listStyleType="none" display="flex" alignItems="center" gap={3}>
+				<ul>
+					<li></li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
 				<Box>
 					<Button disabled={!getCanPreviousPage()} size="sm" borderRadius="sm">
 						pre

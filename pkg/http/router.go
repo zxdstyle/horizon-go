@@ -31,8 +31,8 @@ func (r Router) DELETE(path string, handler HandlerFunc) Router {
 	return r
 }
 
-func (r Router) Group(path string, handler HandlerFunc) Router {
-	group := r.engine.Group(path, r.wrapHandler(handler))
+func (r Router) Group(path string) Router {
+	group := r.engine.Group(path)
 	return Router{
 		engine: group,
 	}

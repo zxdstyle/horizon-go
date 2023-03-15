@@ -38,7 +38,7 @@ func (*apiPost) List(ctx context.Context, req requests.IRequest) responses.Respo
 						IsHome:   true,
 						IsPublic: true,
 						Title:    "Dashboard",
-						Icon:     "",
+						Icon:     "mdi:home",
 					},
 				},
 				{
@@ -46,7 +46,31 @@ func (*apiPost) List(ctx context.Context, req requests.IRequest) responses.Respo
 					Component: "admin_profile",
 					Meta: Meta{
 						Title: "Profile",
-						Icon:  "",
+						Icon:  "mdi:account",
+					},
+				},
+				{
+					Path:      "/marketplace",
+					Component: "admin_marketplace",
+					Meta: Meta{
+						Title: "Marketplace",
+						Icon:  "mdi:cart-outline",
+					},
+				},
+				{
+					Path:      "/datatable",
+					Component: "admin_datatable",
+					Meta: Meta{
+						Title: "Datatable",
+						Icon:  "mdi:bar-chart",
+					},
+				},
+				{
+					Path:      "/table",
+					Component: "admin_table",
+					Meta: Meta{
+						Title: "Table",
+						Icon:  "mdi:bar-chart",
 					},
 				},
 			},

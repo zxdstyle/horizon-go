@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '@/assets/css/App.css';
+import '@/assets/css/app.less';
 import { ChakraProvider } from '@chakra-ui/react';
 import RouterProvider from '@/router';
 import theme from '@/theme/theme';

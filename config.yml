@@ -6,15 +6,16 @@ app:
 db:
   host: 127.0.0.1
   port: 3306
-  database: bloghub
+  database: aries
   username: root
   password: a8968640
   debug: false
 
 clickhouse:
+  driver: clickhouse
   host: 127.0.0.1
-  port: 3306
-  database: bloghub
-  username: root
-  password: a8968640
+  port: 9000
+  database: horizon
+  username: default
+  password:
   debug: false

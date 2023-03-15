@@ -8,7 +8,7 @@ type Option struct {
 	Port     int    `cfg:"port" default:"3306"`
 	Database string `cfg:"database" default:"default"`
 	Username string `cfg:"username" default:"root"`
-	Password string `cfg:"password" default:"123456"`
+	Password string `cfg:"password"`
 	Debug    bool   `cfg:"debug" default:"false"`
 }
 

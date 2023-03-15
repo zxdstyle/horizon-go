@@ -2,9 +2,9 @@ package routes
 
 import (
 	"context"
+	"github.com/zxdstyle/horizon/model"
 	"github.com/zxdstyle/horizon/internal/handler/posts"
 	"github.com/zxdstyle/horizon/pkg"
-	"github.com/zxdstyle/horizon/pkg/horizon/widgets"
 	"github.com/zxdstyle/horizon/pkg/http/requests"
 	"github.com/zxdstyle/horizon/pkg/http/responses"
 )
@@ -12,11 +12,21 @@ import (
 func InitRoutes() {
 	s := pkg.Server()
 
-	s.POST("/", posts.Post.Create)
-	s.GET("/api/v1/routes", posts.Post.List)
+	api := s.Group("/api")
+	{
+		api.GET("/v1/routes", posts.Post.List)
 
-	s.POST("/api/v1/login", func(ctx context.Context, req requests.IRequest) responses.Response {
-		button := widgets.NewButton()
-		return responses.Success(button)
-	})
+		api.POST("/v1/login", func(ctx context.Context, req requests.IRequest) responses.Response {
+			return responses.Success(map[string]any{
+				"username": "zxdstyle",
+				"token":    "12312312312312312312312312312",
+			})
+		})
+
+		api.GET("v1/users", func(ctx context.Context, req requests.IRequest) responses.Response {
+			var users []model.User
+			pkg.DB().WithContext(ctx).Limit(10).Find(&users)
+			return responses.Success(users)
+		})
+	}
 }

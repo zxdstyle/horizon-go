@@ -6,19 +6,21 @@ import Toolbar from '@/components/table/components/Toolbar';
 import useDataSource from './hooks/useDataSource';
 import Loader from './components/Loader';
 import { Provider as TableProvider } from './context';
-import Pagination from './components/Pagination';
+
+import { Pagination } from '@/components/pagination';
 
 interface DataTableProps<T = any> {
 	children?: React.ReactNode;
 	columns: ColumnDef<T>[];
 	api: string;
 	toolbar?: false | ToolbarOption;
+	onPageChange?: (current: number) => void;
 }
 
-function DataTable<T = any>({ children, columns, api, toolbar }: DataTableProps<T>) {
+function DataTable<T = any>({ children, columns, api, toolbar, onPageChange }: DataTableProps<T>) {
 	const { data, isLoading, refresh } = useDataSource<T>(api);
 
-	const { getHeaderGroups, getRowModel, getCanPreviousPage, setPageSize } = useReactTable<T>({
+	const { getHeaderGroups, getRowModel, getCanPreviousPage, setPageSize, setPageIndex } = useReactTable<T>({
 		columns,
 		data,
 		getCoreRowModel: getCoreRowModel(),
@@ -65,7 +67,12 @@ function DataTable<T = any>({ children, columns, api, toolbar }: DataTableProps<
 
 					{getRowModel().rows.length === 0 && <Empty />}
 
-					<Pagination {...{ getCanPreviousPage, setPageSize }} />
+					<Pagination
+						onPageChange={page => {
+							setPageIndex(page - 1);
+							if (onPageChange) onPageChange(page);
+						}}
+					/>
 				</Box>
 			</TableProvider>
 		</Box>
