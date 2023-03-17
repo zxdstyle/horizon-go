@@ -1,9 +1,12 @@
 package model
 
-import "time"
+import (
+	"github.com/zxdstyle/horizon/pkg/base/model"
+	"time"
+)
 
 type User struct {
-	ID        uint      `json:"id"`
+	model.Model[uint]
 	Username  string    `json:"username"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
