@@ -24,12 +24,20 @@ func InitRoutes() {
 		})
 
 		api.GET("v1/users", func(ctx context.Context, req requests.IRequest) responses.Response {
-
 			var (
 				users []model.User
 				total int64
 			)
-			pkg.DB().WithContext(ctx).Limit(10).Find(&users)
+
+			var query struct {
+				Page     int64 `form:"page"`
+				PageSize int64 `form:"pageSize"`
+			}
+			if err := req.BindQuery(&query); err != nil {
+				return responses.Error(err)
+			}
+			offset := (query.Page - 1) * query.PageSize
+			pkg.DB().WithContext(ctx).Limit(10).Offset(int(offset)).Find(&users)
 			pkg.DB().WithContext(ctx).Model(model.User{}).Count(&total)
 			return responses.Success(Pagination{
 				Page:     1,

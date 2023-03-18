@@ -8,6 +8,7 @@ import (
 type IRequest interface {
 	Context() context.Context
 	Bind(data any) error
+	BindQuery(data any) error
 }
 
 type request struct {
@@ -28,4 +29,8 @@ func (r *request) Context() context.Context {
 
 func (r *request) Bind(data any) error {
 	return r.ctx.ShouldBind(data)
+}
+
+func (r *request) BindQuery(data any) error {
+	return r.ctx.ShouldBindQuery(data)
 }
