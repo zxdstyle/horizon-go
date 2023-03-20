@@ -73,6 +73,14 @@ func (*apiPost) List(ctx context.Context, req requests.IRequest) responses.Respo
 						Icon:  "mdi:bar-chart",
 					},
 				},
+				{
+					Path:      "/users",
+					Component: "admin_users",
+					Meta: Meta{
+						Title: "Users",
+						Icon:  "mdi:user",
+					},
+				},
 			},
 		},
 	}
