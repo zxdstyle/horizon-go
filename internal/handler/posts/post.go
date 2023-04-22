@@ -81,6 +81,14 @@ func (*apiPost) List(ctx context.Context, req requests.IRequest) responses.Respo
 						Icon:  "mdi:user",
 					},
 				},
+				{
+					Path:      "/tasks",
+					Component: "tasks",
+					Meta: Meta{
+						Title: "任务",
+						Icon:  "mdi:user",
+					},
+				},
 			},
 		},
 	}
